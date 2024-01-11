@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e6dcbae99c7b24e90ec6a0baa899b9, type: 3}
+  m_Script: {fileID: 11500000, guid: aa56fed7e05194a4c88657fe093a6555, type: 3}
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
-  Waves:
-  - {fileID: 11400000, guid: 244a5bf9e7f852946a32b13346255ccb, type: 2}
-  - {fileID: 11400000, guid: fe878cfe85a98d6418cb66aa42e5b779, type: 2}
-  - {fileID: 11400000, guid: 61d2ff3887d8cd04f97de843983e4a0c, type: 2}
+  waves:
+  - {fileID: 11400000, guid: 0d7ca17a513a33b4abb02fce24d57921, type: 2}
+  - {fileID: 11400000, guid: 2cfc932d9655abd4297662a200d40aa9, type: 2}
+  - {fileID: 11400000, guid: 7f606430231ee3e4e8473a363ab0ee71, type: 2}
