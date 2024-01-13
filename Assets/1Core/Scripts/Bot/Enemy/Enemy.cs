@@ -7,38 +7,54 @@ namespace _1Core.Scripts.Bot.Enemy
     {
         [SerializeField] private NavMeshAgent _agent;
 
-        private Bot _player;
-
-        private void Start()
-        {
-            _player = _sceneManager.player;
-            _agent.SetDestination(_sceneManager.player.transform.position);
-        }
+        private SceneManager _sceneManager;
+        private bool _isApart;
 
         private void Update()
         {
-            Attack();
-
-            _animator.SetFloat(Str.Speed, _agent.speed);
-        }
-
-        public void Init(SceneManager sceneManager)
-        {
-            _sceneManager = sceneManager;
+            base.Update();
+            if (_sceneManager.player != null)
+            {
+                _agent.SetDestination(_sceneManager.player.transform.position);
+                Attack();
+            }
         }
 
         protected override void Attack()
         {
-            if (IsAttackRange(_player.transform.position))
+            if (IsAttackRange(_sceneManager.player.transform.position))
             {
                 _agent.isStopped = true;
+                _animator.SetFloat(Str.Speed, 0);
                 if (CanAttack())
-                    _player.GetDamage(_damage);
+                {
+                    _animator.SetTrigger(Str.Attack);
+                    _attackTimer = 0;
+                    bool isDead = _sceneManager.player.SetDamage(_damage);
+                    if (isDead) _sceneManager.player.Die();
+                }
             }
             else
             {
                 _agent.isStopped = false;
+                _animator.SetFloat(Str.Speed, 1);
             }
+        }
+
+        public void Init(SceneManager sceneManager, bool isApart)
+        {
+            _sceneManager = sceneManager;
+            _animator.SetFloat(Str.Speed, 1);
+            transform.transform.rotation =
+                Quaternion.LookRotation(_sceneManager.player.transform.position - transform.position);
+            _isApart = isApart;
+        }
+
+        public override void Die()
+        {
+            if (_isApart) _sceneManager.enemyFactory.SpawnSmallGoblins(transform.position);
+            _sceneManager.enemyFactory.RemoveEnemy(this);
+            base.Die();
         }
     }
 }

@@ -7,6 +7,13 @@ namespace _1Core.Scripts.Levels
     [Serializable]
     public class Wave : ScriptableObject
     {
-        public GameObject[] enemies;
+        public EnemyWave[] enemies;
+    }
+
+    [Serializable]
+    public class EnemyWave
+    {
+        public GameObject enemies;
+        public bool isApart;
     }
 }

@@ -12,4 +12,9 @@ public class Factory
     {
         return LeanPool.Spawn(_prefab, position, Quaternion.identity, _parent).GetComponent<T>();
     }
+
+    public T Create<T>(GameObject prefab, Vector3 position)
+    {
+        return LeanPool.Spawn(prefab, position, Quaternion.identity, _parent).GetComponent<T>();
+    }
 }

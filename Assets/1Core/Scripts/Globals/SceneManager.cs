@@ -1,17 +1,17 @@
 using _1Core.Scripts.Bot.Enemy;
 using _1Core.Scripts.Bot.Player;
+using _1Core.Scripts.Enums;
 using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
     public Player player;
     public EnemyFactory enemyFactory;
-    public GameObject lose;
-    public GameObject win;
+    public GameObject[] panelsFinish;
 
-    public void GameOver()
+    public void ResultGame(GameResult gameResult)
     {
-        lose.SetActive(true);
+        panelsFinish[(int)gameResult].SetActive(true);
     }
 
     public void Reset()

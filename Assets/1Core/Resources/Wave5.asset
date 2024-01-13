@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9decf9e459de36d40a33b61c25a77c78, type: 3}
-  m_Name: Wave2
+  m_Name: Wave5
   m_EditorClassIdentifier: 
   enemies:
+  - enemies: {fileID: 4570157599844447218, guid: 4c34fad82d8582f40a00c43d3128284a, type: 3}
+    isApart: 0
+  - enemies: {fileID: 4570157599844447218, guid: 4c34fad82d8582f40a00c43d3128284a, type: 3}
+    isApart: 1
   - enemies: {fileID: 4570157599844447218, guid: 4c34fad82d8582f40a00c43d3128284a, type: 3}
     isApart: 0
   - enemies: {fileID: 4570157599844447218, guid: 4c34fad82d8582f40a00c43d3128284a, type: 3}
